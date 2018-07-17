@@ -532,6 +532,7 @@ func (f *Fetcher) doRequest(cmd Command) (*http.Response, error) {
 	return res, nil
 }
 
+// Pseudo random user agent returned as a string.
 func randomUserAgent() string {
     userAgents := []string{
         // Samsung Galaxy S8
@@ -634,6 +635,7 @@ func randomUserAgent() string {
 	return userAgents[randNum]
 }
 
+// Simple random time delay for crawler (0-4 seconds).
 func randomCrawlDelay() time.Duration {
     rand.Seed(time.Now().Unix())
     return time.Duration(rand.Intn(5)) * time.Second
