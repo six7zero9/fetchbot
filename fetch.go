@@ -448,9 +448,7 @@ func (f *Fetcher) getRobotAgent(r robotCommand) *robotstxt.Group {
     
     // selectedProxy := RandomString(proxyOptions)
 	// proxyUrl, _ := url.Parse(selectedProxy)
-    //
-     
-	client := &http.Client{Transport: &http.Transport{Proxy: http.ProxyURL(proxyUrl)}}
+    // client := &http.Client{Transport: &http.Transport{Proxy: http.ProxyURL(proxyUrl)}}
  
 	res, err := f.doRequest(r)
 	if err != nil {
