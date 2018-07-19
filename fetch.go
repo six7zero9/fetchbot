@@ -441,15 +441,6 @@ loop:
 
 // Get the robots.txt User-Agent-specific group.
 func (f *Fetcher) getRobotAgent(r robotCommand) *robotstxt.Group {
-    
-    // This is where the logic for proxies will go.
-    // TODO Create a function that will get a proxy, validate it, and return it.
-    // TODO If the proxy is not valid, it must be marked (possibly for the domain) as bad.
-    
-    // selectedProxy := RandomString(proxyOptions)
-	// proxyUrl, _ := url.Parse(selectedProxy)
-    // client := &http.Client{Transport: &http.Transport{Proxy: http.ProxyURL(proxyUrl)}}
- 
 	res, err := f.doRequest(r)
 	if err != nil {
 		// TODO: Ignore robots.txt request error?
@@ -484,6 +475,15 @@ func (f *Fetcher) visit(cmd Command, res *http.Response, err error) {
 
 // Prepare and execute the request for this Command.
 func (f *Fetcher) doRequest(cmd Command) (*http.Response, error) {
+    
+    // This is where the logic for proxies will go.
+    // TODO Create a function that will get a proxy, validate it, and return it.
+    // TODO If the proxy is not valid, it must be marked (possibly for the domain) as bad.
+    
+    // selectedProxy := RandomString(proxyOptions)
+	// proxyUrl, _ := url.Parse(selectedProxy)
+    // client := &http.Client{Transport: &http.Transport{Proxy: http.ProxyURL(proxyUrl)}}
+    
 	req, err := http.NewRequest(cmd.Method(), cmd.URL().String(), nil)
 	if err != nil {
 		return nil, err
